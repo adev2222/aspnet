@@ -74,7 +74,7 @@ namespace WEB
             .Include(s => s.Enrollments)
             .ThenInclude(e => e.Course)
             .AsNoTracking()
-            .FirstOrDefaultAsync(m => m.Id == id);
+            .FirstOrDefaultAsync(m => m.ID == id);
             if (student == null)
             {
                 return NotFound();
@@ -150,7 +150,7 @@ namespace WEB
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstMidName,LastName,EnrollmentDate")] Student student)
         {
-            if (id != student.Id)
+            if (id != student.ID)
             {
                 return NotFound();
             }
@@ -164,7 +164,7 @@ namespace WEB
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.Id))
+                    if (!StudentExists(student.ID))
                     {
                         return NotFound();
                     }
@@ -188,7 +188,7 @@ namespace WEB
 
             var student = await _context.Students
                 .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (student == null)
             {
                 return NotFound();
@@ -229,7 +229,7 @@ namespace WEB
 
         private bool StudentExists(int id)
         {
-            return _context.Students.Any(e => e.Id == id);
+            return _context.Students.Any(e => e.ID == id);
         }
     }
 }

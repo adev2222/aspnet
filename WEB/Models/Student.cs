@@ -5,11 +5,13 @@ namespace WEB;
 
 public class Student
 {
-    public int Id { get; set; }
+    public int ID { get; set; }
     [Required]
     [StringLength(50, MinimumLength=2)]
     [Column("FirstName")]
     public string FirstMidName { get; set; }
+
+    [Required]
     [StringLength(50, MinimumLength=2)]
     [Display(Name = "Last Name")]
     public string LastName { get; set; }
@@ -26,7 +28,6 @@ public class Student
             return LastName + ", " + FirstMidName;
         }
     }
-
     public ICollection<Enrollment>? Enrollments { get; set; }
 
 }
