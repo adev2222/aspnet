@@ -64,16 +64,16 @@ public class DbInitializer
         {
                 new Department { Name = "English",     Budget = 350000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Abercrombie").ID },
+                    InstructorID  = instructors.Single( i => i.LastName == "Abercrombie").Id },
                 new Department { Name = "Mathematics", Budget = 100000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Fakhouri").ID },
+                    InstructorID  = instructors.Single( i => i.LastName == "Fakhouri").Id },
                 new Department { Name = "Engineering", Budget = 350000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Harui").ID },
+                    InstructorID  = instructors.Single( i => i.LastName == "Harui").Id },
                 new Department { Name = "Economics",   Budget = 100000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Kapoor").ID }
+                    InstructorID  = instructors.Single( i => i.LastName == "Kapoor").Id }
         };
 
         foreach (Department d in departments)
@@ -116,13 +116,13 @@ public class DbInitializer
         var officeAssignments = new OfficeAssignment[]
         {
                 new OfficeAssignment {
-                    InstructorID = instructors.Single( i => i.LastName == "Fakhouri").ID,
+                    InstructorID = instructors.Single( i => i.LastName == "Fakhouri").Id,
                     Location = "Smith 17" },
                 new OfficeAssignment {
-                    InstructorID = instructors.Single( i => i.LastName == "Harui").ID,
+                    InstructorID = instructors.Single( i => i.LastName == "Harui").Id,
                     Location = "Gowan 27" },
                 new OfficeAssignment {
-                    InstructorID = instructors.Single( i => i.LastName == "Kapoor").ID,
+                    InstructorID = instructors.Single( i => i.LastName == "Kapoor").Id,
                     Location = "Thompson 304" },
         };
 
@@ -136,35 +136,35 @@ public class DbInitializer
         {
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Kapoor").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Kapoor").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Harui").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Harui").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Microeconomics" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Zheng").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Zheng").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Macroeconomics" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Zheng").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Zheng").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Calculus" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Fakhouri").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Fakhouri").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Trigonometry" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Harui").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Harui").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Composition" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Abercrombie").Id
                     },
                 new CourseAssignment {
                     CourseID = courses.Single(c => c.Title == "Literature" ).CourseID,
-                    InstructorID = instructors.Single(i => i.LastName == "Abercrombie").ID
+                    InstructorID = instructors.Single(i => i.LastName == "Abercrombie").Id
                     },
         };
 
@@ -177,56 +177,56 @@ public class DbInitializer
         var enrollments = new Enrollment[]
         {
                 new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alexander").ID,
+                    StudentID = students.Single(s => s.LastName == "Alexander").Id,
                     CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
                     Grade = Grade.A
                 },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alexander").ID,
+                    StudentID = students.Single(s => s.LastName == "Alexander").Id,
                     CourseID = courses.Single(c => c.Title == "Microeconomics" ).CourseID,
                     Grade = Grade.C
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alexander").ID,
+                    StudentID = students.Single(s => s.LastName == "Alexander").Id,
                     CourseID = courses.Single(c => c.Title == "Macroeconomics" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                        StudentID = students.Single(s => s.LastName == "Alonso").ID,
+                        StudentID = students.Single(s => s.LastName == "Alonso").Id,
                     CourseID = courses.Single(c => c.Title == "Calculus" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                        StudentID = students.Single(s => s.LastName == "Alonso").ID,
+                        StudentID = students.Single(s => s.LastName == "Alonso").Id,
                     CourseID = courses.Single(c => c.Title == "Trigonometry" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Alonso").ID,
+                    StudentID = students.Single(s => s.LastName == "Alonso").Id,
                     CourseID = courses.Single(c => c.Title == "Composition" ).CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Anand").ID,
+                    StudentID = students.Single(s => s.LastName == "Anand").Id,
                     CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Anand").ID,
+                    StudentID = students.Single(s => s.LastName == "Anand").Id,
                     CourseID = courses.Single(c => c.Title == "Microeconomics").CourseID,
                     Grade = Grade.B
                     },
                 new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Barzdukas").ID,
+                    StudentID = students.Single(s => s.LastName == "Barzdukas").Id,
                     CourseID = courses.Single(c => c.Title == "Chemistry").CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Li").ID,
+                    StudentID = students.Single(s => s.LastName == "Li").Id,
                     CourseID = courses.Single(c => c.Title == "Composition").CourseID,
                     Grade = Grade.B
                     },
                     new Enrollment {
-                    StudentID = students.Single(s => s.LastName == "Justice").ID,
+                    StudentID = students.Single(s => s.LastName == "Justice").Id,
                     CourseID = courses.Single(c => c.Title == "Literature").CourseID,
                     Grade = Grade.B
                     }
@@ -236,7 +236,7 @@ public class DbInitializer
         {
             var enrollmentInDataBase = context.Enrollments.Where(
                 s =>
-                        s.Student.ID == e.StudentID &&
+                        s.Student.Id == e.StudentID &&
                         s.Course.CourseID == e.CourseID).SingleOrDefault();
             if (enrollmentInDataBase == null)
             {

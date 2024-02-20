@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace WEB;
 
-public class SchoolContext : DbContext
+public class SchoolContext : IdentityDbContext<IdentityUser<int>, IdentityRole<int>, int>
 {
     public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
     {
@@ -27,10 +29,38 @@ public class SchoolContext : DbContext
         modelBuilder.Entity<Instructor>().ToTable("Instructor");
         modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
         modelBuilder.Entity<CourseAssignment>().ToTable("CourseAssignment");
-        modelBuilder.Entity<Person>().ToTable("Person");
-        
+
+
 
         modelBuilder.Entity<CourseAssignment>()
             .HasKey(c => new { c.CourseID, c.InstructorID });
+
+        modelBuilder.Entity<Instructor>()
+            .HasOne(i => i.OfficeAssignment)
+            .WithOne(o => o.Instructor)
+            .HasForeignKey<OfficeAssignment>(o => o.InstructorID);
+
+        modelBuilder.Entity<IdentityUserLogin<int>>(
+            b =>
+            {
+                b.HasNoKey();
+                b.ToTable("UserLogin");
+            }
+        );
+
+        modelBuilder.Entity<IdentityUserRole<int>>(
+            b =>
+            {
+                b.HasNoKey();
+                b.ToTable("UserRole");
+            }
+        );
+        modelBuilder.Entity<IdentityUserToken<int>>(
+            b =>
+            {
+                b.HasNoKey();
+                b.ToTable("UserToken");
+            }
+        );
     }
 }

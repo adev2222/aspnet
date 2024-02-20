@@ -38,7 +38,7 @@ namespace WEB
             {
                 ViewData["InstructorID"] = id.Value;
                 Instructor instructor = viewModel.Instructors.Where(
-                    i => i.ID == id.Value).Single();
+                    i => i.Id == id.Value).Single();
                 viewModel.Courses = instructor.CourseAssignments.Select(s => s.Course);
             }
 
@@ -66,7 +66,7 @@ namespace WEB
             }
 
             var instructor = await _context.Instructors
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (instructor == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace WEB
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,LastName,FirstMidName,HireDate")] Instructor instructor)
+        public async Task<IActionResult> Create([Bind("Id,LastName,FirstMidName,HireDate")] Instructor instructor)
         {
             if (ModelState.IsValid)
             {
@@ -120,7 +120,7 @@ namespace WEB
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,LastName,FirstMidName,HireDate")] Instructor instructor)
         {
-            if (id != instructor.ID)
+            if (id != instructor.Id)
             {
                 return NotFound();
             }
@@ -134,7 +134,7 @@ namespace WEB
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InstructorExists(instructor.ID))
+                    if (!InstructorExists(instructor.Id))
                     {
                         return NotFound();
                     }
@@ -157,7 +157,7 @@ namespace WEB
             }
 
             var instructor = await _context.Instructors
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (instructor == null)
             {
                 return NotFound();
@@ -183,7 +183,7 @@ namespace WEB
 
         private bool InstructorExists(int id)
         {
-            return _context.Instructors.Any(e => e.ID == id);
+            return _context.Instructors.Any(e => e.Id == id);
         }
     }
 }
