@@ -9,7 +9,7 @@ public class DbInitializer
         //context.Database.EnsureCreated();
 
         // Look for any students.
-        if (context.Students.Any())
+        if (context.Persons.Any())
         {
             return;   // DB has been seeded
         }
